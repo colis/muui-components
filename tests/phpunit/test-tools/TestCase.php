@@ -1,6 +1,6 @@
 <?php
 
-namespace MuuiComponents;
+namespace MUUIComponents;
 
 use PHPUnit_Framework_TestResult;
 use Text_Template;

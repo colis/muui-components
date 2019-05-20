@@ -9,7 +9,7 @@
  * Text Domain: muui-components
  * Domain Path: /languages
  *
- * @package MuuiComponents
+ * @package MUUIComponents
  */
 
 // Useful global constants.
@@ -23,13 +23,17 @@ define( 'MUUI_ACF_LOCAL_JSON_PATH', MUUI_COMPONENTS_INC . 'acf-json' );
 require_once MUUI_COMPONENTS_INC . 'functions/core.php';
 
 // Activation/Deactivation.
-register_activation_hook( __FILE__, '\MuuiComponents\Core\activate' );
-register_deactivation_hook( __FILE__, '\MuuiComponents\Core\deactivate' );
+register_activation_hook( __FILE__, '\MUUIComponents\Core\activate' );
+register_deactivation_hook( __FILE__, '\MUUIComponents\Core\deactivate' );
 
 // Bootstrap.
-MuuiComponents\Core\setup();
+MUUIComponents\Core\setup();
 
 // Require Composer autoloader if it exists.
 if ( file_exists( MUUI_COMPONENTS_PATH . '/vendor/autoload.php' ) ) {
 	require_once MUUI_COMPONENTS_PATH . 'vendor/autoload.php';
 }
+
+// Plugin initialisation.
+$plugin = new MUUIComponents\Plugin();
+$plugin->init();

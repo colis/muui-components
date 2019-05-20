@@ -1,5 +1,5 @@
 <?php
-namespace MuuiComponents\Core;
+namespace MUUIComponents\Core;
 
 /**
  * This is a very basic test case to get things started. You should probably rename this and make
@@ -13,7 +13,7 @@ namespace MuuiComponents\Core;
  *   - https://github.com/10up/wp_mock
  */
 
-use MuuiComponents as Base;
+use MUUIComponents as Base;
 
 class Core_Tests extends Base\TestCase {
 
@@ -26,8 +26,8 @@ class Core_Tests extends Base\TestCase {
 	 */
 	public function test_setup() {
 		// Setup
-		\WP_Mock::expectActionAdded( 'init', 'MuuiComponents\Core\i18n' );
-		\WP_Mock::expectActionAdded( 'init', 'MuuiComponents\Core\init' );
+		\WP_Mock::expectActionAdded( 'init', 'MUUIComponents\Core\i18n' );
+		\WP_Mock::expectActionAdded( 'init', 'MUUIComponents\Core\init' );
 		\WP_Mock::expectAction( 'muui_components_loaded' );
 
 		// Act

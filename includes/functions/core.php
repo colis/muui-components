@@ -2,10 +2,10 @@
 /**
  * Core plugin functionality.
  *
- * @package MuuiComponents
+ * @package MUUIComponents
  */
 
-namespace MuuiComponents\Core;
+namespace MUUIComponents\Core;
 
 use \WP_Error as WP_Error;
 
@@ -30,9 +30,6 @@ function setup() {
 	add_filter( 'mce_css', $n( 'mce_css' ) );
 	// Hook to allow async or defer on asset loading.
 	add_filter( 'script_loader_tag', $n( 'script_loader_tag' ), 10, 2 );
-	// Activate ACF Local JSON feature.
-	add_filter( 'acf/settings/save_json', $n( 'acf_json_save_point' ) );
-	add_filter( 'acf/settings/load_json', $n( 'acf_json_load_point' ) );
 
 	do_action( 'muui_components_loaded' );
 }
@@ -106,10 +103,10 @@ function get_enqueue_contexts() {
 function script_url( $script, $context ) {
 
 	if ( ! in_array( $context, get_enqueue_contexts(), true ) ) {
-		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in MuuiComponents script loader.' );
+		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in MUUIComponents script loader.' );
 	}
 
-	return "dist/js/${script}.js";
+	return MUUI_COMPONENTS_URL . "dist/js/${script}.js";
 
 }
 
@@ -124,7 +121,7 @@ function script_url( $script, $context ) {
 function style_url( $stylesheet, $context ) {
 
 	if ( ! in_array( $context, get_enqueue_contexts(), true ) ) {
-		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in MuuiComponents stylesheet loader.' );
+		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in MUUIComponents stylesheet loader.' );
 	}
 
 	return MUUI_COMPONENTS_URL . "dist/css/${stylesheet}.css";
@@ -284,29 +281,4 @@ function script_loader_tag( $tag, $handle ) {
 	}
 
 	return $tag;
-}
-
-/**
- * Add a new ACF Local JSON save point.
- *
- * @param string $path The default ACF Local JSON path.
- */
-function acf_json_save_point( $path ) {
-	$path = MUUI_ACF_LOCAL_JSON_PATH;
-
-	return $path;
-}
-
-/**
- * Add a new ACF Local JSON load point.
- *
- * @param array $paths The default array of ACF Local JSON paths.
- */
-function acf_json_load_point( $paths ) {
-	// remove original path (optional)
-	unset( $paths[0] );
-
-	$paths[] = MUUI_ACF_LOCAL_JSON_PATH;
-
-	return $paths;
 }
