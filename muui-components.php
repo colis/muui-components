@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: MuuiComponents
+ * Plugin Name: MUUI Components
  * Plugin URI:  https://pragmatic.agency
- * Description:
+ * Description: Pragmatic UI Components centralised container.
  * Version:     0.1.0
  * Author:      Pragmatic
  * Author URI:  https://pragmatic.agency

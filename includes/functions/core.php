@@ -63,6 +63,12 @@ function activate() {
 	// First load the init scripts in case any rewrite functionality is being loaded
 	init();
 	flush_rewrite_rules();
+
+	// ACF dependency check
+	if ( ! class_exists( 'ACF' ) ) {
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+		wp_die( esc_html__( 'Please install and activate ACF Pro.', 'muui-components' ), 'Plugin dependency check', array( 'back_link' => true ) );
+	}
 }
 
 /**
