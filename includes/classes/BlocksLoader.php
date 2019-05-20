@@ -2,6 +2,8 @@
 
 namespace MUUIComponents;
 
+use function MUUIComponents\Core\style_url as style_url;
+
 /**
  * Handle ACF Gutenberg Blocks.
  */
@@ -13,7 +15,7 @@ class BlocksLoader {
 	 * @param string $path The default ACF Local JSON path.
 	 */
 	public function acf_json_save_point( $path ) {
-		$path = MUUI_ACF_LOCAL_JSON_PATH;
+		$path = MUUI_COMPONENTS_ACF_LOCAL_JSON_PATH;
 
 		return $path;
 	}
@@ -27,7 +29,7 @@ class BlocksLoader {
 		// remove original path (optional)
 		unset( $paths[0] );
 
-		$paths[] = MUUI_ACF_LOCAL_JSON_PATH;
+		$paths[] = MUUI_COMPONENTS_ACF_LOCAL_JSON_PATH;
 
 		return $paths;
 	}
@@ -44,7 +46,6 @@ class BlocksLoader {
 				[
 					'slug'  => 'muui-components',
 					'title' => __( 'MUUI Components', 'muui-components' ),
-					'icon'  => 'wordpress',
 				],
 			]
 		);
@@ -64,11 +65,12 @@ class BlocksLoader {
 			[
 				'name'            => 'pwl-hero',
 				'title'           => __( 'Hero', 'muui-components' ),
-				'render_template' => 'partials/block-team-member.php',
+				'render_template' => MUUI_COMPONENTS_BLOCK_TEMPLATES_PATH . 'hero/hero.php',
 				'category'        => 'muui-components',
-				'icon'            => 'admin-users',
+				'icon'            => 'wordpress',
 				'mode'            => 'auto',
 				'keywords'        => [ 'hero' ],
+				'enqueue_style'   => style_url( 'shared-style', 'shared' ),
 			]
 		);
 	}
