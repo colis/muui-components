@@ -99,6 +99,19 @@ class BlocksLoader {
 				'enqueue_style'   => style_url( 'shared-style', 'shared' ),
 			]
 		);
+
+		acf_register_block_type(
+			[
+				'name'            => 'pwl-newsletter-cta',
+				'title'           => __( 'Newsletter CTA', 'muui-components' ),
+				'render_callback' => [ $this, 'muui_block_render_callback' ],
+				'category'        => 'muui-components',
+				'icon'            => 'wordpress',
+				'mode'            => 'preview',
+				'keywords'        => [ 'newsletter' ],
+				'enqueue_style'   => style_url( 'shared-style', 'shared' ),
+			]
+		);
 	}
 
 	/**
