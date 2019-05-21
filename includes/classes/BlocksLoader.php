@@ -68,8 +68,21 @@ class BlocksLoader {
 				'render_callback' => [ $this, 'muui_block_render_callback' ],
 				'category'        => 'muui-components',
 				'icon'            => 'wordpress',
-				'mode'            => 'auto',
+				'mode'            => 'preview',
 				'keywords'        => [ 'hero' ],
+				'enqueue_style'   => style_url( 'shared-style', 'shared' ),
+			]
+		);
+
+		acf_register_block_type(
+			[
+				'name'            => 'pwl-media-panel',
+				'title'           => __( 'Media Panel', 'muui-components' ),
+				'render_callback' => [ $this, 'muui_block_render_callback' ],
+				'category'        => 'muui-components',
+				'icon'            => 'wordpress',
+				'mode'            => 'preview',
+				'keywords'        => [ 'media', 'text' ],
 				'enqueue_style'   => style_url( 'shared-style', 'shared' ),
 			]
 		);
