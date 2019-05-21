@@ -86,6 +86,19 @@ class BlocksLoader {
 				'enqueue_style'   => style_url( 'shared-style', 'shared' ),
 			]
 		);
+
+		acf_register_block_type(
+			[
+				'name'            => 'pwl-message-box',
+				'title'           => __( 'Message Box', 'muui-components' ),
+				'render_callback' => [ $this, 'muui_block_render_callback' ],
+				'category'        => 'muui-components',
+				'icon'            => 'wordpress',
+				'mode'            => 'preview',
+				'keywords'        => [ 'message' ],
+				'enqueue_style'   => style_url( 'shared-style', 'shared' ),
+			]
+		);
 	}
 
 	/**
