@@ -65,7 +65,7 @@ class BlocksLoader {
 			[
 				'name'            => 'pwl-hero',
 				'title'           => __( 'Hero', 'muui-components' ),
-				'render_template' => MUUI_COMPONENTS_BLOCK_TEMPLATES_PATH . 'hero/hero.php',
+				'render_callback' => [ $this, 'muui_block_render_callback' ],
 				'category'        => 'muui-components',
 				'icon'            => 'wordpress',
 				'mode'            => 'auto',
@@ -73,5 +73,18 @@ class BlocksLoader {
 				'enqueue_style'   => style_url( 'shared-style', 'shared' ),
 			]
 		);
+	}
+
+	/**
+	 * Generic render callback.
+	 *
+	 * @param array $block The block settings and attributes.
+	 */
+	public function muui_block_render_callback( $block ) {
+		$slug = str_replace( 'acf/pwl-', '', $block['name'] );
+
+		if ( file_exists( MUUI_COMPONENTS_BLOCK_TEMPLATES_PATH . "{$slug}/{$slug}.php" ) ) {
+			include MUUI_COMPONENTS_BLOCK_TEMPLATES_PATH . "{$slug}/{$slug}.php";
+		}
 	}
 }
