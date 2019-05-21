@@ -6,7 +6,7 @@
  */
 
 // create id attribute for specific styling
-$block_id = 'hero-' . $block['id'];
+$block_id = 'media-panel-' . $block['id'];
 
 // create align class ("alignwide") from block setting ("wide")
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
