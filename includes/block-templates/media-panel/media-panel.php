@@ -12,8 +12,8 @@ $block_id = 'media-panel-' . $block['id'];
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 // Load values and assing defaults.
-$media_panel_title   = get_field( 'media_panel_title' ) ?: 'Your title here...';
-$media_panel_content = get_field( 'media_panel_content' ) ?: 'Your content here...';
+$media_panel_title   = get_field( 'media_panel_title' ) ?: __( 'Your title here...', 'muui-components' );
+$media_panel_content = get_field( 'media_panel_content' ) ?: __( 'Your content here...', 'muui-components' );
 $media_panel_image   = get_field( 'media_panel_image' );
 
 ?>

@@ -12,8 +12,8 @@ $block_id = 'hero-' . $block['id'];
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 // Load values and assing defaults.
-$hero_title              = get_field( 'hero_title' ) ?: 'Your title here...';
-$hero_content            = get_field( 'hero_content' ) ?: 'Your content here...';
+$hero_title              = get_field( 'hero_title' ) ?: __( 'Your title here...', 'muui-components' );
+$hero_content            = get_field( 'hero_content' ) ?: __( 'Your content here...', 'muui-components' );
 $hero_primary_cta        = get_field( 'hero_primary_cta' );
 $hero_secondary_cta      = get_field( 'hero_secondary_cta' );
 $hero_backgroud_image    = get_field( 'hero_background_image' );

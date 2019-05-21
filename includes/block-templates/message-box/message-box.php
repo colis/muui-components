@@ -12,7 +12,7 @@ $block_id = 'message-box-' . $block['id'];
 $align_class = $block['align'] ? 'align' . $block['align'] : '';
 
 // Load values and assing defaults.
-$message_box_content         = get_field( 'message_box_content' ) ?: 'Your content here...';
+$message_box_content         = get_field( 'message_box_content' ) ?: __( 'Your content here...', 'muui-components' );
 $message_box_cta             = get_field( 'message_box_cta' );
 $message_box_backgroud_image = get_field( 'message_box_background_image' );
 
